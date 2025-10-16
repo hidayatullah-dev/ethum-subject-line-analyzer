@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETHUM Subject Line Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">ETHUM Subject Line Analyzer</h1>
+            <div class="nav-tabs">
+                <a href="#" class="nav-tab active" data-page="dashboard">Dashboard</a>
+                <a href="#" class="nav-tab" data-page="data">Data</a>
+                <a href="#" class="nav-tab" data-page="charts">Charts</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- PAGE 1: Dashboard -->
+        <section id="dashboard-page" class="page active">
+            <!-- Hero Section (shown when no data) -->
+            <div id="hero-section" class="hero-section">
+                <div class="hero-main">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="badge-icon">🧬</span>
+                            <span>ETHUM Framework</span>
+                        </div>
+                        <h1 class="hero-title">Data-Driven Subject Line Testing</h1>
+                        <p class="hero-subtitle">Advanced statistical framework combining volume validation, frequentist
+                            confidence, and Bayesian probability modeling</p>
+
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">📈</div>
+                                <div class="stat-text">
+                                    <div class="stat-number">95%</div>
+                                    <div class="stat-label">Confidence Intervals</div>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">🎯</div>
+                                <div class="stat-text">
+                                    <div class="stat-number">70%</div>
+                                    <div class="stat-label">Performance Threshold</div>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">⚡</div>
+                                <div class="stat-text">
+                                    <div class="stat-number">60+</div>
+                                    <div class="stat-label">Min Volume Required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="start-analysis-btn" class="start-btn">
+                            <span class="btn-text">
+                                <span class="btn-icon">🚀</span>
+                                Start Analysis
+                            </span>
+                            <div class="btn-loader hidden">
+                                <div class="spinner"></div>
+                                <span>Running analysis...</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="visual-container">
+                            <div class="floating-card card-1">
+                                <div class="card-header">Wilson Score</div>
+                                <div class="card-content">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill wilson-fill"></div>
+                                    </div>
+                                    <div class="card-value">82.3% - 94.7%</div>
+                                </div>
+                            </div>
+
+                            <div class="floating-card card-2">
+                                <div class="card-header">Bayesian Model</div>
+                                <div class="card-content">
+                                    <div class="probability-chart">
+                                        <div class="prob-bar prob-1"></div>
+                                        <div class="prob-bar prob-2"></div>
+                                        <div class="prob-bar prob-3"></div>
+                                    </div>
+                                    <div class="card-value">Prob Best: 87%</div>
+                                </div>
+                            </div>
+
+                            <div class="floating-card card-3">
+                                <div class="card-header">Verdict</div>
+                                <div class="card-content">
+                                    <div class="verdict-badge winner">WINNER</div>
+                                    <div class="card-value">Lock as Control</div>
+                                </div>
+                            </div>
+
+                            <div class="data-flow">
+                                <div class="flow-node node-1">📊 Data</div>
+                                <div class="flow-arrow arrow-1">→</div>
+                                <div class="flow-node node-2">📈 Analysis</div>
+                                <div class="flow-arrow arrow-2">→</div>
+                                <div class="flow-node node-3">🎯 Verdict</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Framework Details -->
+                <div class="framework-details">
+                    <div class="details-grid">
+                        <div class="detail-card">
+                            <div class="detail-icon">🔍</div>
+                            <h3>Volume Validation</h3>
+                            <p>Campaigns require ≥60 total sends with each variant having ≥20 sends for statistical
+                                significance</p>
+                            <div class="detail-formula">
+                                <code>Campaign: n ≥ 60<br>Variant: n ≥ 20</code>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">📊</div>
+                            <h3>Wilson Confidence</h3>
+                            <p>95% confidence intervals using Wilson score method for reliable performance bounds</p>
+                            <div class="detail-formula">
+                                <code>CI = p̂ ± z√[(p̂(1-p̂) + z²/4n) / n]</code>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">🧠</div>
+                            <h3>Bayesian Modeling</h3>
+                            <p>Posterior distributions simulate true performance probabilities and variant rankings</p>
+                            <div class="detail-formula">
+                                <code>P(θ|data) ∝ P(data|θ) × P(θ)</code>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">⚖️</div>
+                            <h3>ETHUM Verdict Logic</h3>
+                            <p>Automated decisions based on probability thresholds and performance criteria</p>
+                            <div class="verdict-rules">
+                                <div class="rule-item">
+                                    <span class="rule-verdict winner">Winner</span>
+                                    <span class="rule-condition">Prob≥70% > 90% & Prob Best > 80%</span>
+                                </div>
+                                <div class="rule-item">
+                                    <span class="rule-verdict needs-data">Needs Data</span>
+                                    <span class="rule-condition">Prob≥70% 60-90% & Prob Best > 70%</span>
+                                </div>
+                                <div class="rule-item">
+                                    <span class="rule-verdict loser">Loser</span>
+                                    <span class="rule-condition">Otherwise</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Flow Visualization -->
+                <div class="process-flow">
+                    <h3 class="flow-title">Analysis Pipeline</h3>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Data Ingestion</h4>
+                                <p>Fetch campaign metrics via Instantly API</p>
+                                <div class="step-icon">📥</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-connector"></div>
+
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Volume Check</h4>
+                                <p>Validate minimum send requirements</p>
+                                <div class="step-icon">✅</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-connector"></div>
+
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Statistical Analysis</h4>
+                                <p>Wilson intervals + Bayesian modeling</p>
+                                <div class="step-icon">📊</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-connector"></div>
+
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Verdict & Action</h4>
+                                <p>Automated recommendations</p>
+                                <div class="step-icon">🎯</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Cards (shown when data is available) -->
+            <div id="summary-section" class="summary-section hidden">
+                <div class="section-header">
+                    <h2>Campaign Overview</h2>
+                    <button id="rerun-analysis-btn" class="secondary-btn">
+                        <span>🔄 Re-run Analysis</span>
+                    </button>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                                </svg>
+                            </span>
+                            <span class="card-title">Total Campaigns</span>
+                        </div>
+                        <div class="card-value" id="total-campaigns">0</div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </span>
+                            <span class="card-title">Total Variants</span>
+                        </div>
+                        <div class="card-value" id="total-variants">0</div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+                                </svg>
+                            </span>
+                            <span class="card-title">Avg Open Rate</span>
+                        </div>
+                        <div class="card-value" id="avg-open-rate">0%</div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                            </span>
+                            <span class="card-title">Avg Reply Rate</span>
+                        </div>
+                        <div class="card-value" id="avg-reply-rate">0%</div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </span>
+                            <span class="card-title">Total Sent</span>
+                        </div>
+                        <div class="card-value" id="total-sent">0</div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                                </svg>
+                            </span>
+                            <span class="card-title">Last Updated</span>
+                        </div>
+                        <div class="card-value small" id="last-run">Never</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Framework Information (always visible) -->
+            <div class="framework-info">
+                <!-- Framework Details -->
+                <div class="framework-details">
+                    <h2 class="section-title">ETHUM Framework Overview</h2>
+                    <div class="details-grid">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="9"/>
+                                </svg>
+                            </div>
+                            <h3>Volume Validation</h3>
+                            <p>Campaigns require ≥60 total sends with each variant having ≥20 sends for statistical significance</p>
+                            <div class="detail-formula">
+                                <code>Campaign: n ≥ 60<br>Variant: n ≥ 20</code>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                                </svg>
+                            </div>
+                            <h3>Wilson Confidence</h3>
+                            <p>95% confidence intervals using Wilson score method for reliable performance bounds</p>
+                            <div class="detail-formula">
+                                <code>CI = p̂ ± z√[(p̂(1-p̂) + z²/4n) / n]</code>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h3>Bayesian Modeling</h3>
+                            <p>Posterior distributions simulate true performance probabilities and variant rankings</p>
+                            <div class="detail-formula">
+                                <code>P(θ|data) ∝ P(data|θ) × P(θ)</code>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <h3>ETHUM Verdict Logic</h3>
+                            <p>Automated decisions based on probability thresholds and performance criteria</p>
+                            <div class="verdict-rules">
+                                <div class="rule-item">
+                                    <span class="rule-verdict winner">Winner</span>
+                                    <span class="rule-condition">Prob≥70% > 90% & Prob Best > 80%</span>
+                                </div>
+                                <div class="rule-item">
+                                    <span class="rule-verdict needs-data">Needs Data</span>
+                                    <span class="rule-condition">Prob≥70% 60-90% & Prob Best > 70%</span>
+                                </div>
+                                <div class="rule-item">
+                                    <span class="rule-verdict loser">Loser</span>
+                                    <span class="rule-condition">Otherwise</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Flow Visualization -->
+                <div class="process-flow">
+                    <h3 class="flow-title">Analysis Pipeline</h3>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Data Ingestion</h4>
+                                <p>Fetch campaign metrics via Instantly API</p>
+                                <div class="step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flow-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-pulse"></div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Volume Check</h4>
+                                <p>Validate minimum send requirements</p>
+                                <div class="step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 11l3 3L22 4"/>
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flow-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-pulse"></div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Statistical Analysis</h4>
+                                <p>Wilson intervals + Bayesian modeling</p>
+                                <div class="step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                                        <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flow-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-pulse"></div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Verdict & Action</h4>
+                                <p>Automated recommendations</p>
+                                <div class="step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Demo -->
+                <div class="demo-section">
+                    <h3 class="demo-title">Live Statistical Analysis</h3>
+                    <div class="demo-container">
+                        <div class="demo-card">
+                            <div class="demo-header">Wilson Score Confidence Interval</div>
+                            <div class="demo-visual">
+                                <div class="confidence-bar">
+                                    <div class="confidence-range">
+                                        <div class="range-low">82.3%</div>
+                                        <div class="range-fill"></div>
+                                        <div class="range-high">94.7%</div>
+                                    </div>
+                                    <div class="confidence-point">88.5%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-card">
+                            <div class="demo-header">Bayesian Probability Distribution</div>
+                            <div class="demo-visual">
+                                <div class="probability-bars">
+                                    <div class="prob-bar-demo" style="height: 60%"></div>
+                                    <div class="prob-bar-demo" style="height: 85%"></div>
+                                    <div class="prob-bar-demo" style="height: 100%"></div>
+                                    <div class="prob-bar-demo" style="height: 75%"></div>
+                                    <div class="prob-bar-demo" style="height: 45%"></div>
+                                </div>
+                                <div class="prob-labels">
+                                    <span>Variant A</span>
+                                    <span>Variant B</span>
+                                    <span>Variant C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: Data Table -->
+        <section id="data-page" class="page">
+            <div class="page-header">
+                <h2>Campaign Data</h2>
+                <div class="page-actions">
+                    <input type="text" id="search-input" placeholder="Search campaigns..." class="search-input">
+                    <button id="fullscreen-btn" class="secondary-btn">⛶ Fullscreen</button>
+                    <button id="export-btn" class="secondary-btn">📥 Export CSV</button>
+                </div>
+            </div>
+
+            <div class="data-container">
+                <div class="table-wrapper">
+                    <table id="data-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Source</th>
+                                <th>Platform</th>
+                                <th>Campaign</th>
+                                <th>Variable</th>
+                                <th>Variant</th>
+                                <th>Subject Line</th>
+                                <th>Sent</th>
+                                <th>Opened</th>
+                                <th>Replies</th>
+                                <th>Open Rate</th>
+                                <th>Reply Rate</th>
+                                <th>Wilson Low</th>
+                                <th>Wilson High</th>
+                                <th>Prob ≥ 70%</th>
+                                <th>Prob Best</th>
+                                <th>Verdict</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <tr class="no-data">
+                                <td colspan="17">No data available. Run an analysis first.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: Charts -->
+        <section id="charts-page" class="page">
+            <div class="page-header"></div>
+            </m <h2>Performance Analytics</h2>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Open Rate Performance</h3>
+                        <div class="chart-controls">
+                            <select id="chart1-filter" class="chart-filter">
+                                <option value="all">All Campaigns</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="open-rate-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Verdict Distribution</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="verdict-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3>Open Rate vs Reply Rate Correlation</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="correlation-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3>Wilson Confidence Intervals</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="wilson-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Full Screen Loading Animation -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-container">
+            <div class="loading-content">
+                <div class="loading-logo">
+                    <svg viewBox="0 0 100 100" class="loading-spinner">
+                        <circle cx="50" cy="50" r="45" stroke="#3b82f6" stroke-width="8" fill="none" stroke-dasharray="283" stroke-dashoffset="283"/>
+                        <circle cx="50" cy="50" r="35" stroke="#8b5cf6" stroke-width="6" fill="none" stroke-dasharray="220" stroke-dashoffset="220"/>
+                        <circle cx="50" cy="50" r="25" stroke="#22c55e" stroke-width="4" fill="none" stroke-dasharray="157" stroke-dashoffset="157"/>
+                    </svg>
+                    <div class="loading-center">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <h2 class="loading-title">Analyzing Campaign Data</h2>
+                <p class="loading-subtitle">Running statistical analysis on your email campaigns...</p>
+                
+                <div class="loading-steps">
+                    <div class="step-item active" data-step="1">
+                        <div class="step-dot"></div>
+                        <span>Fetching Data</span>
+                    </div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-dot"></div>
+                        <span>Volume Validation</span>
+                    </div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-dot"></div>
+                        <span>Statistical Analysis</span>
+                    </div>
+                    <div class="step-item" data-step="4">
+                        <div class="step-dot"></div>
+                        <span>Generating Insights</span>
+                    </div>
+                </div>
+                
+                <div class="loading-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">0%</div>
+                </div>
+            </div>
+            
+            <!-- Floating Data Elements -->
+            <div class="floating-elements">
+                <div class="float-element" style="--delay: 0s; --duration: 3s;">📊</div>
+                <div class="float-element" style="--delay: 0.5s; --duration: 4s;">📈</div>
+                <div class="float-element" style="--delay: 1s; --duration: 3.5s;">📉</div>
+                <div class="float-element" style="--delay: 1.5s; --duration: 4.5s;">💹</div>
+                <div class="float-element" style="--delay: 2s; --duration: 3.2s;">📋</div>
+                <div class="float-element" style="--delay: 2.5s; --duration: 4.2s;">🎯</div>
+            </div>
+            
+            <!-- Scrolling Background Pattern -->
+            <div class="bg-pattern">
+                <div class="pattern-line" style="--delay: 0s;"></div>
+                <div class="pattern-line" style="--delay: 0.5s;"></div>
+                <div class="pattern-line" style="--delay: 1s;"></div>
+                <div class="pattern-line" style="--delay: 1.5s;"></div>
+                <div class="pattern-line" style="--delay: 2s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div id="success-notification" class="notification hidden">
+        <div class="notification-content">
+            <div class="notification-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                </svg>
+            </div>
+            <div class="notification-text">
+                <h4>Data Updated Successfully!</h4>
+                <p>Campaign analysis completed with latest results</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Analysis Failed</h3>
+                <button id="close-error-btn" class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <p id="error-message">Something went wrong. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="retry-btn" class="primary-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
