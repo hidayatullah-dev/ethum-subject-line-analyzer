@@ -2,7 +2,7 @@
 const CONFIG = {
     // n8n webhook URLs - Replace these with your actual webhook endpoints
     WEBHOOKS: {
-        START_ANALYSIS: 'https://ethum.app.n8n.cloud/webhook/245fb954-b409-42c3-95a5-9400a00ebead',
+        START_ANALYSIS: 'YOUR WEBHOOK OVER HERE',
         // If you have a separate return webhook, add it here
         // RETURN_DATA: 'https://example.com/webhook/return'
     },
