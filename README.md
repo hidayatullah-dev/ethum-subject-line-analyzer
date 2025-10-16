@@ -2,9 +2,6 @@
 
 A professional, data-driven web application for analyzing email subject line performance using advanced statistical methods. Built with pure HTML, CSS, and JavaScript - no frameworks required.
 
-## 🎯 Live Application
-**Production URL**: https://subjectanalyzer.netlify.app
-
 ## 🧬 ETHUM Framework Overview
 
 The ETHUM (Email Testing & Hypothesis Unified Methodology) framework is a comprehensive statistical approach that combines:
