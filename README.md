@@ -205,7 +205,6 @@ const probBest = calculateVariantRanking(variants) * 100;
 
 ### **Production Deployment**
 - **Platform**: Netlify
-- **URL**: https://subjectanalyzer.netlify.app
 - **Build Time**: ~6 seconds
 - **CDN**: Global edge network for fast loading
 
